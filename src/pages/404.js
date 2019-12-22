@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import * as Mixins from '../Mixins';
 import * as t from '../Typography';
 import Layout from '../components/Layout';
-import HireMePopup from '../components/HireMePopup.js';
 
 const AboveFold = styled.div`
   ${Mixins.aboveFoldMixin}
@@ -51,10 +50,6 @@ class NotFoundPage extends React.Component {
             </t.H3>
           </AboveFold>
         </Layout>
-        <HireMePopup
-          open={openHireMePopup}
-          handleClose={this.closeContactPopup}
-        />
       </NotFoundPageWrapper>
     );
   }

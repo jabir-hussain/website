@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
-import Colors from './Colors';
 import * as t from './Typography';
-import { media } from './MediaQueries';
 
 export const center = css`
   display: block;
@@ -56,7 +54,7 @@ export const block = css`
 export const wrapper = css`
   position: relative;
   margin: auto;
-  max-width: 1680px;
+  max-width: 1200px;
   overflow: hidden;
   background-color: #fff;
   z-index: 0;

@@ -14,16 +14,22 @@ export const Content = styled.div`
 
 export const LayoutWrapper = styled.div`
   position: relative;
+
+  > section {
+    min-height: 400px;
+    padding: 60px 0 0;
+
+    &:nth-child(odd) {
+      background-color: ${props => props.theme.backgrounds.sectionPrimary};
+    }
+
+    &:nth-child(even) {
+      background-color: ${props => props.theme.backgrounds.sectionSecondary};
+    }
+  }
 `;
 
-const Layout = ({
-  children,
-  theme,
-  bigFooter,
-  mediumFooter,
-  openContactPopup
-  
-}) => (
+const Layout = ({ children, theme }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -42,21 +48,20 @@ const Layout = ({
           meta={[
             {
               name: 'description',
-              content:
-                'Portfolio built using Gatsby and React'
+              content: 'Portfolio built using Gatsby and React'
             },
             { name: 'keywords', content: 'portfolio' }
           ]}
         >
           <html lang="en" />
         </Helmet>
-        <Header theme={theme} openContactPopup={openContactPopup} />
+        <Header theme={theme} />
         <LayoutWrapper>{children}</LayoutWrapper>
-        <Footer
+        {/* <Footer
           big={bigFooter}
           medium={mediumFooter}
           openContactPopup={openContactPopup}
-        />
+        /> */}
       </>
     )}
   />

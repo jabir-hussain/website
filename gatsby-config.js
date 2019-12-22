@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Name Surname - Portfolio'
+    title: 'Jabir - Portfolio',
+    name: 'Jabir',
+    designation: 'Software Engineer, Mentor, & Blogger'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -24,6 +26,16 @@ module.exports = {
         theme_color: '#f6f1ed',
         display: 'minimal-ui',
         icon: 'src/images/favicon.png' // This path is relative to the root of the site.
+      }
+    },
+    {
+      resolve: `gatsby-plugin-typescript`
+    },
+    {
+      resolve: `gatsby-styled-components-dark-mode`,
+      options: {
+        light: require(`${__dirname}/src/theme/index.ts`).light,
+        dark: require(`${__dirname}/src/theme/index.ts`).dark
       }
     }
     // 'gatsby-plugin-offline',

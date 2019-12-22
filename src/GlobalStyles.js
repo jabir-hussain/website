@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+  @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
   html {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #eff4f7;
   }
   * {

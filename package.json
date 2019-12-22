@@ -14,6 +14,7 @@
     "gatsby-plugin-styled-components": "^3.0.1",
     "gatsby-react-router-scroll": "^2.0.1",
     "gatsby-source-filesystem": "^2.0.7",
+    "gatsby-styled-components-dark-mode": "^1.0.9",
     "gatsby-transformer-sharp": "^2.1.8",
     "husky": "^1.1.4",
     "polished": "^2.3.0",
@@ -35,11 +36,25 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/react": "^5.2.8",
+    "@types/node": "^12.12.21",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "babel-loader": "^8.0.6",
+    "gatsby-plugin-typescript": "^2.1.23",
+    "gh-pages": "^2.1.1",
     "prettier": "^1.15.1"
   },
   "repository": {
