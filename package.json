@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-website-gatsby",
+  "name": "portfolio",
   "description": "Portfolio website built in Gatsby",
   "version": "1.0.0",
   "author": "Milos Lekovic <milos085@gmail.com>",
@@ -36,12 +36,13 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "serve": "gatsby serve",
     "start": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build && gh-pages -d public"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
