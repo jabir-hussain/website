@@ -93,7 +93,8 @@ const Homepage = props => {
       <Layout>
         <Home name={name} designation={designation} hero_img={images.hero_img} />
         <About about_shap_bg={images.about_shap_bg} />
-        <Services></Services>
+        <Services />
+        <Services />
       </Layout>
     </HomepageWrapper>
   );
