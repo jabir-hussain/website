@@ -3,7 +3,33 @@ module.exports = {
   siteMetadata: {
     title: 'Jabir - Portfolio',
     name: 'Jabir',
-    designation: 'Software Engineer, Mentor, & Blogger'
+    designation: 'Software Engineer, Mentor, & Blogger',
+    services: [
+      {
+        title: 'Web Development',
+        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat',
+        icon: 'code_icon.png',
+        bgImg: 'web.jpg'
+      },
+      {
+        title: 'Technical Mentor',
+        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat',
+        icon: 'phone_icon.png',
+        bgImg: 'mentoring.jpg'
+      },
+      {
+        title: 'Write Blogs',
+        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat',
+        icon: 'design_layout_icon.png',
+        bgImg: 'blogs.png'
+      },
+      {
+        title: 'UI/UX Library',
+        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat',
+        icon: 'design_layout_icon.png',
+        bgImg: 'reusable.png'
+      }
+    ]
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -38,6 +64,9 @@ module.exports = {
         light: require(`${__dirname}/src/theme/index.ts`).light,
         dark: require(`${__dirname}/src/theme/index.ts`).dark
       }
+    },
+    {
+      resolve: `gatsby-plugin-polished`
     }
     // 'gatsby-plugin-offline',
   ]

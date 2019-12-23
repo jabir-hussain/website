@@ -85,9 +85,16 @@ export const ServicesStyle = styled('section')`
         background-color: ${props => props.theme.backgrounds.primary};
       }
     }
+
     > p {
       max-width: 800px;
       margin: 30px auto;
     }
+  }
+  .services-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 38px;
+    margin-top: 70px;
   }
 `;

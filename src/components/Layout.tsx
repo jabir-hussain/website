@@ -16,8 +16,7 @@ export const LayoutWrapper = styled.div`
   position: relative;
 
   > section {
-    min-height: 400px;
-    padding: 60px 0 0;
+    padding: 60px 0;
 
     &:nth-child(odd) {
       background-color: ${props => props.theme.backgrounds.sectionPrimary};

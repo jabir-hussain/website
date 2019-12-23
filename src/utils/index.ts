@@ -1,7 +1,11 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 
-function getImages(imageNames, edges) {
+interface ImageReturnProps {
+  [key: string]: { fluid: FluidObject };
+}
+
+export function getImages(imageNames, edges): ImageReturnProps {
   const finalObj = {};
   imageNames.forEach(name => {
     const foundedEdge = edges.find(edge => {
@@ -17,20 +21,26 @@ function getImages(imageNames, edges) {
 }
 
 interface ImageProp {
-  [key: string]: { fluid: FluidObject };
+  node: { fluid: FluidObject };
 }
 
 interface GetImageReturnProps {
   title: string;
   name: string;
   designation: string;
-  images: ImageProp;
+  images: ImageProp[];
+  services: {
+    title: string;
+    description: string;
+    icon: string;
+    bgImg: string;
+  }[];
 }
 
-export const useGetImage = (imageNames: string[]): GetImageReturnProps => {
+export const useGetImage = (): GetImageReturnProps => {
   const {
     site: {
-      siteMetadata: { title, name, designation }
+      siteMetadata: { title, name, designation, services }
     },
     allImageSharp: { edges }
   } = useStaticQuery(graphql`
@@ -40,6 +50,12 @@ export const useGetImage = (imageNames: string[]): GetImageReturnProps => {
           title
           name
           designation
+          services {
+            bgImg
+            description
+            icon
+            title
+          }
         }
       }
       allImageSharp {
@@ -55,5 +71,5 @@ export const useGetImage = (imageNames: string[]): GetImageReturnProps => {
     }
   `);
   console.log('edges', edges);
-  return { title, name, designation, images: getImages(imageNames, edges) };
+  return { title, name, designation, services, images: edges };
 };

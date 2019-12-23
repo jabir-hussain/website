@@ -9,11 +9,13 @@ import { graphql } from 'gatsby';
 import { HomeStyle, AboutStyle, HomepageWrapper, ServicesStyle } from '../style';
 import { Button } from '../components/Button';
 import { BoxSection } from '../components/BoxSection';
-import { useGetImage } from '../utils';
+import { useGetImage, getImages } from '../utils';
 import { Img } from '../components/Img';
+import ServiceCard from '../components/ServiceCard';
 
 const Home = props => {
-  const { name, designation, hero_img } = props;
+  const { name, designation, images } = props;
+  const imageObj = getImages(['hero_img'], images);
 
   return (
     <HomeStyle>
@@ -26,7 +28,7 @@ const Home = props => {
           </div>
 
           <div className="image-wrapper">
-            <Img fluid={hero_img.fluid} />
+            <Img fluid={imageObj.hero_img.fluid} />
           </div>
         </div>
       </BoxSection>
@@ -35,14 +37,15 @@ const Home = props => {
 };
 
 const About = props => {
-  const { about_shap_bg } = props;
+  const { images } = props;
+  const imageObj = getImages(['about_shap_bg'], images);
 
   return (
     <AboutStyle>
       <BoxSection>
         <div className="about-wrapper">
           <div className="title">
-            <Img fluid={about_shap_bg.fluid} />
+            <Img fluid={imageObj.about_shap_bg.fluid} />
             <t.H2 bold>About me</t.H2>
           </div>
 
@@ -70,6 +73,18 @@ const About = props => {
 };
 
 const Services = props => {
+  const { services, images } = props;
+  const icons = services.map(({ icon }) => icon);
+  const bgImgs = services.map(({ bgImg }) => bgImg);
+  const imageNames = [...icons, ...bgImgs];
+  const imagesObj = getImages(imageNames, images);
+  const serviceCards = services.map(service => ({
+    ...service,
+    icon: imagesObj[service.icon],
+    bgImg: imagesObj[service.bgImg]
+  }));
+
+  console.log('serviceCards', serviceCards);
   return (
     <ServicesStyle>
       <BoxSection>
@@ -81,20 +96,31 @@ const Services = props => {
             laborum. Sed ut perspiciatis unde omnis iste natur
           </t.P>
         </div>
+
+        <div className="services-list">
+          {serviceCards.map((service, i) => (
+            <ServiceCard
+              key={`${i}_service`}
+              title={service.title}
+              description={service.description}
+              backgroundImg={service.bgImg}
+              icon={service.icon}
+            />
+          ))}
+        </div>
       </BoxSection>
     </ServicesStyle>
   );
 };
 const Homepage = props => {
-  const { title, name, designation, images } = useGetImage(['hero_img', 'about_shap_bg']);
+  const { services, name, designation, images } = useGetImage();
 
   return (
     <HomepageWrapper>
       <Layout>
-        <Home name={name} designation={designation} hero_img={images.hero_img} />
-        <About about_shap_bg={images.about_shap_bg} />
-        <Services />
-        <Services />
+        <Home name={name} designation={designation} images={images} />
+        <About images={images} />
+        <Services services={services} images={images} />
       </Layout>
     </HomepageWrapper>
   );
