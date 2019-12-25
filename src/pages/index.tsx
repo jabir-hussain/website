@@ -21,7 +21,7 @@ const Home = props => {
   const imageObj = getImages(['hero_img'], images);
 
   return (
-    <HomeStyle>
+    <HomeStyle id="home">
       <BoxSection>
         <div className="wrapper">
           <div className="content">
@@ -44,7 +44,7 @@ const About = props => {
   const imageObj = getImages(['about_shap_bg'], images);
 
   return (
-    <AboutStyle>
+    <AboutStyle id="about">
       <BoxSection>
         <div className="about-wrapper">
           <div className="title">
@@ -54,19 +54,25 @@ const About = props => {
 
           <div className="description">
             <t.P>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat.
+              I've almost 6 years of experience in software development. I'm currently working as Senior Software
+              Engineer for eMumba Inc. which is based in Islamabad.
             </t.P>
 
             <t.P>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nu pariatur
-              excepteur sint occaecat.
+              The best and exciting thing about my current job is that I have been challenged to work on task of
+              different new technologies on a number of occasion which I accepted and carried out handsomely. It not
+              only enhanced my skills but has also given me the confidence that I can make my hands dirty in almost any
+              technology in a quick time and meet tight deadlines in a very professional environment.
+            </t.P>
+
+            <t.P>
+              I have excellent analytical and problem solving skills. I have always been able to establish and maintain
+              excellent relationships with coworkers at all levels.
             </t.P>
 
             <div className="actions-wrapper">
               <Button>View Works</Button>
-              <Button>Download CV</Button>
+              <Button isNotFilled>Download CV</Button>
             </div>
           </div>
         </div>
@@ -88,7 +94,7 @@ const Services = props => {
   }));
 
   return (
-    <SectionSlots>
+    <SectionSlots id="services">
       {{
         title: 'Services',
         description: `Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
@@ -109,7 +115,7 @@ const LatestWorks = props => {
   }));
 
   return (
-    <SectionSlots>
+    <SectionSlots id="latest-works">
       {{
         title: 'Latest Works',
         description: `Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
@@ -124,7 +130,7 @@ const WorkExperience = props => {
   const { workExperiences } = props;
 
   return (
-    <SectionSlots>
+    <SectionSlots id="work-experiences">
       {{
         title: 'Work Experiences',
         description: `Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
@@ -140,10 +146,10 @@ const AnyProjectInMind = props => {
   const bgImg = getImages(['hire_bg'], images);
 
   return (
-    <SectionSlots bgImg={bgImg.hire_bg} className="any-project-in-mind">
+    <SectionSlots id="any-project-in-mind" bgImg={bgImg.hire_bg} className="any-project-in-mind">
       {{
         title: 'Any Project In Mind',
-        content: <Button>Hire Me</Button>
+        content: <Button isNotFilled>Hire Me</Button>
       }}
     </SectionSlots>
   );

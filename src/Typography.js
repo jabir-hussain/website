@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { media } from './MediaQueries';
 
-const typographyColor = props => {
-  return '#333'; //   return props.primary ? Colors.darkest : props.white && Colors.light;
-};
-
 export const SIZES = {
   XXL: '70px',
   XL: '45px',
@@ -30,7 +26,7 @@ export const LINE_HEIGHTS = {
 
 export const H1 = styled.h1`
 	font-size: ${SIZES.XXL};
-    color: ${props => typographyColor(props)};
+    color: ${props => props.theme.textColors.heading};
     font-weight: ${props => (props.bold ? 'bold' : props.thin ? '300' : 'normal')};
     text-align: ${props => (props.align ? props.align : 'inherit')};
     ${props => props.noMargin && 'margin: 0;'}
@@ -44,7 +40,7 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
 	font-size: ${SIZES.XL};
-    color: ${props => typographyColor(props)};
+    color: ${props => props.theme.textColors.heading};
     font-weight: ${props => (props.bold ? 'bold' : props.thin ? '300' : 'normal')};
     text-align: ${props => (props.align ? props.align : 'inherit')};
     ${props => props.noMargin && 'margin: 0;'}
@@ -56,7 +52,7 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
 	font-size: ${SIZES.L};
-    color: ${props => typographyColor(props)};
+    color: ${props => props.theme.textColors.heading};
     font-weight: ${props => (props.bold ? 'bold' : props.thin ? '300' : 'normal')};
     text-align: ${props => (props.align ? props.align : 'inherit')};
     ${props => props.noMargin && 'margin: 0;'}
@@ -67,7 +63,7 @@ export const H3 = styled.h3`
 
 export const H4 = styled.h4`
 	font-size: ${SIZES.M};
-    color: ${props => typographyColor(props)};
+    color: ${props => props.theme.textColors.heading};
     font-weight: ${props => (props.bold ? 'bold' : props.thin ? '300' : 'normal')};
     text-align: ${props => (props.align ? props.align : 'inherit')};
     ${props => props.noMargin && 'margin: 0;'}
@@ -78,7 +74,7 @@ export const H4 = styled.h4`
 
 export const LargeP = styled.p`
 	font-size: ${SIZES.M};
-    color: ${props => typographyColor(props)};
+    color: ${props => props.theme.textColors.paragraph};
     font-weight: ${props => (props.bold ? 'bold' : props.thin ? '300' : 'normal')};
     text-align: ${props => (props.align ? props.align : 'inherit')};
     ${props => props.noMargin && 'margin: 0;'}
@@ -93,7 +89,7 @@ export const LargeP = styled.p`
 export const P = styled.p`
 	font-size: ${SIZES.XS};
     line-height: ${LINE_HEIGHTS.M};
-    color: ${props => typographyColor(props)};
+    color: ${props => props.theme.textColors.paragraph};
     font-weight: ${props => (props.bold ? 'bold' : props.thin ? '300' : 'normal')};
     text-align: ${props => (props.align ? props.align : 'inherit')};
     ${props => props.noMargin && 'margin: 0;'}

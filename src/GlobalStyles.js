@@ -13,6 +13,11 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #eff4f7;
+
+    * {
+      color: #8a8fa3;
+
+    }
   }
   * {
     box-sizing: inherit;

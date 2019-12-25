@@ -14,6 +14,7 @@ export const Content = styled.div`
 
 export const LayoutWrapper = styled.div`
   position: relative;
+  margin-top: 78px;
 
   > section {
     padding: 60px 0;

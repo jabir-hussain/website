@@ -14,6 +14,9 @@ const SectionSlotsStyle = styled('section')`
     background: ${props => transparentize(0.1, props.theme.backgrounds.primary)} !important;
 
     .wrapper {
+      position: relative;
+      z-index: 1;
+
       > h2 {
         color: white;
         &:after {
@@ -65,6 +68,7 @@ const SectionSlotsStyle = styled('section')`
 `;
 
 interface Props {
+  id: string;
   className?: string;
   bgImg?: { fluid: FluidObject };
   children: {
@@ -75,11 +79,11 @@ interface Props {
 }
 
 function SectionSlots(props: Props) {
-  const { children, bgImg, className } = props;
+  const { children, bgImg, className, id } = props;
   const { title, description, content } = children;
 
   return (
-    <SectionSlotsStyle className={className || ''}>
+    <SectionSlotsStyle id={id} className={className || ''}>
       <BoxSection>
         <div className="wrapper">
           <t.H2 bold>{title}</t.H2>

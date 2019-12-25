@@ -4,6 +4,8 @@ import { transparentize } from 'polished';
 export const HomepageWrapper = styled.div``;
 
 export const HomeStyle = styled('section')`
+  padding-bottom: 0;
+
   .wrapper {
     height: 658px;
     display: grid;
@@ -66,3 +68,5 @@ export const AboutStyle = styled('section')`
     margin-right: 10px;
   }
 `;
+
+export const AnyProjectInMindStyle = styled('');
