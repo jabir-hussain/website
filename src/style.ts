@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { transparentize } from 'polished';
 
 export const HomepageWrapper = styled.div``;
 
@@ -63,38 +64,5 @@ export const AboutStyle = styled('section')`
 
   a {
     margin-right: 10px;
-  }
-`;
-
-export const ServicesStyle = styled('section')`
-  text-align: center;
-
-  .wrapper {
-    > h2 {
-      display: inline-block;
-      position: relative;
-
-      &:after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: calc(50% - 50px);
-        z-index: 1;
-        width: 100px;
-        height: 4px;
-        background-color: ${props => props.theme.backgrounds.primary};
-      }
-    }
-
-    > p {
-      max-width: 800px;
-      margin: 30px auto;
-    }
-  }
-  .services-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 38px;
-    margin-top: 70px;
   }
 `;

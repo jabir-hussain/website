@@ -3,8 +3,8 @@ import { lighten, darken } from 'polished';
 import { Link } from 'gatsby';
 
 export const Button = styled(Link)`
-  background: ${props => props.theme.backgrounds.primary};
-  color: ${props => 'white'};
+  background: ${props => props.bgColor || props.theme.backgrounds.primary};
+  color: ${props => props.color || 'white'};
   border: 2px solid transparent;
   line-height: 1.05;
   font-size: 16px;

@@ -11,7 +11,10 @@ import { Button } from '../components/Button';
 import { BoxSection } from '../components/BoxSection';
 import { useGetImage, getImages } from '../utils';
 import { Img } from '../components/Img';
-import ServiceCard from '../components/ServiceCard';
+import SectionSlots from '../components/SectionSlots';
+import ServiceCards from '../components/ServiceCards';
+import LatestWorkCards from '../components/LatestWorkCards';
+import WorkExperiences from '../components/WorkExperiences';
 
 const Home = props => {
   const { name, designation, images } = props;
@@ -84,36 +87,70 @@ const Services = props => {
     bgImg: imagesObj[service.bgImg]
   }));
 
-  console.log('serviceCards', serviceCards);
   return (
-    <ServicesStyle>
-      <BoxSection>
-        <div className="wrapper">
-          <t.H2 bold>Services</t.H2>
-
-          <t.P>
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum. Sed ut perspiciatis unde omnis iste natur
-          </t.P>
-        </div>
-
-        <div className="services-list">
-          {serviceCards.map((service, i) => (
-            <ServiceCard
-              key={`${i}_service`}
-              title={service.title}
-              description={service.description}
-              backgroundImg={service.bgImg}
-              icon={service.icon}
-            />
-          ))}
-        </div>
-      </BoxSection>
-    </ServicesStyle>
+    <SectionSlots>
+      {{
+        title: 'Services',
+        description: `Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum. Sed ut perspiciatis unde omnis iste natur`,
+        content: <ServiceCards serviceCards={serviceCards} />
+      }}
+    </SectionSlots>
   );
 };
+
+const LatestWorks = props => {
+  const { latestWorks, images } = props;
+  const bgImgs = latestWorks.map(({ bgImg }) => bgImg);
+  const imagesObj = getImages(bgImgs, images);
+  const latestWorksCards = latestWorks.map(work => ({
+    ...work,
+    bgImg: imagesObj[work.bgImg]
+  }));
+
+  return (
+    <SectionSlots>
+      {{
+        title: 'Latest Works',
+        description: `Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+      laborum. Sed ut perspiciatis unde omnis iste natur`,
+        content: <LatestWorkCards latestWorksCards={latestWorksCards} />
+      }}
+    </SectionSlots>
+  );
+};
+
+const WorkExperience = props => {
+  const { workExperiences } = props;
+
+  return (
+    <SectionSlots>
+      {{
+        title: 'Work Experiences',
+        description: `Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+      laborum. Sed ut perspiciatis unde omnis iste natur`,
+        content: <WorkExperiences workExperiences={workExperiences} />
+      }}
+    </SectionSlots>
+  );
+};
+
+const AnyProjectInMind = props => {
+  const { images } = props;
+  const bgImg = getImages(['hire_bg'], images);
+
+  return (
+    <SectionSlots bgImg={bgImg.hire_bg} className="any-project-in-mind">
+      {{
+        title: 'Any Project In Mind',
+        content: <Button>Hire Me</Button>
+      }}
+    </SectionSlots>
+  );
+};
+
 const Homepage = props => {
-  const { services, name, designation, images } = useGetImage();
+  const { services, workExperiences, latestWorks, name, designation, images } = useGetImage();
 
   return (
     <HomepageWrapper>
@@ -121,6 +158,9 @@ const Homepage = props => {
         <Home name={name} designation={designation} images={images} />
         <About images={images} />
         <Services services={services} images={images} />
+        <LatestWorks latestWorks={latestWorks} images={images} />
+        <WorkExperience workExperiences={workExperiences} />
+        <AnyProjectInMind images={images} />
       </Layout>
     </HomepageWrapper>
   );

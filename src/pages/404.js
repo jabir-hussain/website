@@ -37,7 +37,6 @@ class NotFoundPage extends React.Component {
   };
 
   render() {
-    const { openHireMePopup } = this.state;
     return (
       <NotFoundPageWrapper>
         <Layout theme="white" openContactPopup={this.openContactPopup}>

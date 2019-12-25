@@ -35,12 +35,23 @@ interface GetImageReturnProps {
     icon: string;
     bgImg: string;
   }[];
+  latestWorks: {
+    title: string;
+    bgImg: string;
+  }[];
+  workExperiences: {
+    title: string;
+    startDate: string;
+    endDate: string;
+    companyName: string;
+    description: string;
+  }[];
 }
 
 export const useGetImage = (): GetImageReturnProps => {
   const {
     site: {
-      siteMetadata: { title, name, designation, services }
+      siteMetadata: { title, name, designation, services, latestWorks, workExperiences }
     },
     allImageSharp: { edges }
   } = useStaticQuery(graphql`
@@ -56,20 +67,48 @@ export const useGetImage = (): GetImageReturnProps => {
             icon
             title
           }
+          latestWorks {
+            bgImg
+            title
+          }
+          workExperiences {
+            title
+            startDate
+            endDate
+            companyName
+            description
+          }
         }
       }
       allImageSharp {
         edges {
           node {
-            fluid(maxWidth: 600) {
+            fluid(fit: CONTAIN, sizes: "") {
+              base64
+              tracedSVG
+              aspectRatio
               src
+              srcSet
+              srcWebp
+              srcSetWebp
               sizes
+              originalImg
+              originalName
+              presentationWidth
+              presentationHeight
             }
           }
         }
       }
     }
   `);
-  console.log('edges', edges);
-  return { title, name, designation, services, images: edges };
+  return { title, name, designation, services, latestWorks, workExperiences, images: edges };
+};
+
+export const styledComponentsLoop = (noOfChilds, executeString) => {
+  let str = '';
+  for (let index = 0; index < noOfChilds; index = index + 1) {
+    str += executeString(index);
+  }
+  return str;
 };

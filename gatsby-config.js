@@ -29,6 +29,54 @@ module.exports = {
         icon: 'design_layout_icon.png',
         bgImg: 'reusable.png'
       }
+    ],
+    latestWorks: [
+      {
+        title: 'Reusable Viusals',
+        bgImg: 'redgets.png'
+      },
+      {
+        title: 'A10 Networks',
+        bgImg: 'a10.png'
+      },
+      {
+        title: 'KPI Dashboards',
+        bgImg: 'kpi.png'
+      },
+      {
+        title: 'Netnology SDWAN',
+        bgImg: 'netnology.png'
+      },
+      {
+        title: 'SiQuantum',
+        bgImg: 'siquantum.png'
+      }
+    ],
+    workExperiences: [
+      {
+        title: 'Software Engineer',
+        startDate: 'March 2013',
+        endDate: 'Apr 2015',
+        companyName: 'Emumba inc',
+        description:
+          'I have worked on various projects as frontend engineer using Backbone.js, jQuery, and Less technologies.'
+      },
+      {
+        title: 'Senior Software Engineer',
+        startDate: 'May 2015',
+        endDate: 'Dec 2018',
+        companyName: 'Emumba inc',
+        description:
+          'I have worked on various projects as frontend engineer using Backbone.js, jQuery, and Less technologies.'
+      },
+      {
+        title: 'Software Architect',
+        startDate: 'Jan 2019',
+        endDate: 'Present',
+        companyName: 'Emumba inc',
+        description:
+          'I have worked on various projects as frontend engineer using Backbone.js, jQuery, and Less technologies.'
+      }
     ]
   },
   plugins: [
