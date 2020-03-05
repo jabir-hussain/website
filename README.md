@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Portfolio website built in Gatsby
+  Portfolio
 </h1>
 
 <a href="https://relaxed-bhaskara-5abd0a.netlify.com/" target="_blank">
