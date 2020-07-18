@@ -97,7 +97,7 @@ const Services = props => {
     <SectionSlots id="services">
       {{
         title: 'Services',
-        description: `I have experience in many things, but I truely passionated in the follwing stuffs`,
+        description: `I am providing the services in the following stuffs, you will check my work and definitely fall in love with.`,
         content: <ServiceCards serviceCards={serviceCards} />
       }}
     </SectionSlots>
@@ -117,8 +117,7 @@ const LatestWorks = props => {
     <SectionSlots id="latest-works">
       {{
         title: 'Latest Works',
-        description: `Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-      laborum. Sed ut perspiciatis unde omnis iste natur`,
+        description: `I always try to solve new challenges, you can check my recent one I have worked on`,
         content: <LatestWorkCards latestWorksCards={latestWorksCards} />
       }}
     </SectionSlots>
@@ -132,7 +131,7 @@ const WorkExperience = props => {
     <SectionSlots id="work-experiences">
       {{
         title: 'Work Experiences',
-        description: `I always try to solve new challenges, you can check my recent one I have worked on`,
+        description: `I have experience in many things, but I truely passionated in the following stuffs`,
         content: <WorkExperiences workExperiences={workExperiences} />
       }}
     </SectionSlots>
